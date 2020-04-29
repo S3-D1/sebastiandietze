@@ -27,6 +27,9 @@ jobs:
     - name: build
       run: npm run build
 
+    - name: set CNAME
+      run: echo www.sebastiandietze.de > dist/CNAME
+
       # Deploy to local repo
     - name: Deploy
       uses: s0/git-publish-subdir-action@master
