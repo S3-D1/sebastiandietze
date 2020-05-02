@@ -24,6 +24,10 @@
         <v-icon>{{icons.mdiXing}}</v-icon>
       </v-btn>
 
+      <v-btn icon title="coming soon">
+        <v-icon>{{icons.mdiLinkedin}}</v-icon>
+      </v-btn>
+
       <v-btn icon href="https://github.com/S3-D1">
         <v-icon>{{icons.mdiGithub}}</v-icon>
       </v-btn>
@@ -58,7 +62,7 @@
 <script>
 import Home from '@/views/Home.vue';
 import {
-  mdiFacebook, mdiGithub, mdiTools, mdiTwitter, mdiXing,
+  mdiFacebook, mdiGithub, mdiTools, mdiTwitter, mdiXing, mdiLinkedin,
 } from '@mdi/js';
 
 export default {
@@ -74,6 +78,7 @@ export default {
       mdiFacebook,
       mdiTwitter,
       mdiXing,
+      mdiLinkedin,
       mdiGithub,
     },
   }),
