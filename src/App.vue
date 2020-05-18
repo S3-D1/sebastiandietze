@@ -1,37 +1,36 @@
 <template>
-  <v-app>
+  <v-app class="background">
     <v-app-bar
       app
       color="primary"
       dark
-      shrink-on-scroll
-      prominent
-      scroll-threshold="500"
     >
       <v-toolbar-title class="ml-8">Sebastian Dietze</v-toolbar-title>
 
       <v-spacer/>
 
-      <v-btn icon href="https://www.facebook.com/sebastian.dietze.77/">
-       <v-icon>{{icons.mdiFacebook}}</v-icon>
-      </v-btn>
+      <v-menu offset-y open-on-hover>
+        <template v-slot:activator="{ on }">
+          <v-btn
+            v-on="on"
+            icon
+            class="mx-1"
+          >
+            <v-icon>{{icons.mdiShieldAccount}}</v-icon>
+          </v-btn>
+        </template>
 
-      <v-btn icon href="https://twitter.com/SebastianDiet20">
-        <v-icon>{{icons.mdiTwitter}}</v-icon>
-      </v-btn>
-
-      <v-btn icon href="https://www.xing.com/profile/Sebastian_Dietze9">
-        <v-icon>{{icons.mdiXing}}</v-icon>
-      </v-btn>
-
-      <v-btn icon title="coming soon">
-        <v-icon>{{icons.mdiLinkedin}}</v-icon>
-      </v-btn>
-
-      <v-btn icon href="https://github.com/S3-D1">
-        <v-icon>{{icons.mdiGithub}}</v-icon>
-      </v-btn>
-
+        <v-list>
+          <v-list-item v-for="media in socialMedia" :key="media.link">
+            <v-btn icon :key="media.link" :href="media.link" v-if="media.link!=null">
+              <v-icon>{{media.icon}}</v-icon>
+            </v-btn>
+            <v-btn icon :key="media.link" title="coming soon" v-if="media.link==null">
+              <v-icon>{{media.icon}}</v-icon>
+            </v-btn>
+          </v-list-item>
+        </v-list>
+      </v-menu>
     </v-app-bar>
 
     <v-content>
@@ -46,7 +45,20 @@
         <v-divider/>
 
         <v-card-text class="white--text text-center">
-          &copy;{{ new Date().getFullYear() }} — <strong>Sebastian Dietze</strong>
+          <strong>&copy;{{ new Date().getFullYear() }} |
+          Sebastian Dietze
+          <v-btn icon href="mailto:kontakt@sebastiandietze.de">
+            <v-icon>{{icons.mdiEmailSend}}</v-icon>
+          </v-btn>
+          |</strong>
+          <template v-for="media in socialMedia">
+            <v-btn icon :key="media.link" :href="media.link" v-if="media.link!=null">
+              <v-icon>{{media.icon}}</v-icon>
+            </v-btn>
+            <v-btn icon :key="media.link" title="coming soon" v-if="media.link==null">
+              <v-icon>{{media.icon}}</v-icon>
+            </v-btn>
+          </template>
         </v-card-text>
 
         <v-divider/>
@@ -62,7 +74,8 @@
 <script>
 import Home from '@/views/Home.vue';
 import {
-  mdiFacebook, mdiGithub, mdiTools, mdiTwitter, mdiXing, mdiLinkedin,
+  mdiFacebook, mdiGithub, mdiTools, mdiTwitter, mdiXing, mdiLinkedin, mdiEmailSend,
+  mdiShieldAccount,
 } from '@mdi/js';
 
 export default {
@@ -75,12 +88,31 @@ export default {
   data: () => ({
     icons: {
       mdiTools,
-      mdiFacebook,
-      mdiTwitter,
-      mdiXing,
-      mdiLinkedin,
-      mdiGithub,
+      mdiEmailSend,
+      mdiShieldAccount,
     },
+    socialMedia: [
+      {
+        icon: mdiFacebook,
+        link: 'https://www.facebook.com/sebastian.dietze.77/',
+      },
+      {
+        icon: mdiTwitter,
+        link: 'https://twitter.com/SebastianDiet20',
+      },
+      {
+        icon: mdiXing,
+        link: 'https://www.xing.com/profile/Sebastian_Dietze9',
+      },
+      {
+        icon: mdiLinkedin,
+        link: null,
+      },
+      {
+        icon: mdiGithub,
+        link: 'https://github.com/S3-D1',
+      },
+    ],
   }),
 };
 </script>
