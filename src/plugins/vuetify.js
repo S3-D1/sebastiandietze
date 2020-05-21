@@ -1,21 +1,24 @@
-import Vue from 'vue';
-import Vuetify from 'vuetify/lib';
-import colors from 'vuetify/lib/util/colors';
-import minifyTheme from 'minify-css-string';
+import Vue from "vue";
+import Vuetify from "vuetify/lib";
+import colors from "vuetify/lib/util/colors";
+import minifyTheme from "minify-css-string";
 
 Vue.use(Vuetify);
 
 export default new Vuetify({
   theme: {
     dark: true,
-    options: { minifyTheme },
+    options: {
+      minifyTheme
+    },
     themes: {
       dark: {
-        primary: colors.deepPurple.darken4,
-      },
+        primary: colors.deepPurple.darken4
+      }
     },
+    background: colors.grey.lighten1
   },
   icons: {
-    iconfont: 'mdiSvg',
-  },
+    iconfont: "mdiSvg"
+  }
 });
