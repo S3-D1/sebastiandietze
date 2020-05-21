@@ -12,8 +12,8 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: "HelloWorld",
 
-  data: () => ({ }),
+  data: () => ({})
 };
 </script>

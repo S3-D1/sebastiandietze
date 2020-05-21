@@ -1,17 +1,17 @@
 <template>
   <div class="home">
-    <UnderConstruction/>
+    <UnderConstruction />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import UnderConstruction from '@/components/UnderConstruction.vue';
+import UnderConstruction from "@/components/UnderConstruction.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    UnderConstruction,
-  },
+    UnderConstruction
+  }
 };
 </script>
